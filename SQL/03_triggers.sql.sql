@@ -69,7 +69,6 @@ BEGIN
     FROM funcion
     WHERE idfuncion = NEW.idfuncion;
 
-    -- Verificar que ambas salas sean iguales
     IF v_sala_butaca <> v_sala_funcion THEN
         RAISE EXCEPTION
             'La butaca % no pertenece a la sala de la función %',

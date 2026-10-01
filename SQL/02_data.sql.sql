@@ -9,15 +9,7 @@
 -- 1. CINES
 -- =========================================================
 
-INSERT INTO cine (
-    cod_cine,
-    email,
-    nombre,
-    calle,
-    num_calle,
-    ciudad,
-    telefono
-) VALUES
+INSERT INTO cine (cod_cine, email, nombre, calle, num_calle, ciudad, telefono) VALUES
 (101, 'contacto@cinemaxpergamino.com', 'CinemaX Pergamino',
  'Av. de Mayo', '450', 'Pergamino', '02477-412345'),
 
@@ -38,15 +30,7 @@ INSERT INTO cine (
 -- 2. PELÍCULAS
 -- =========================================================
 
-INSERT INTO pelicula (
-    cod_peli,
-    titulo,
-    director,
-    actores,
-    productora,
-    argumento,
-    genero
-) VALUES
+INSERT INTO pelicula (cod_peli, titulo, director,actores, productora, argumento, genero) VALUES
 (501, 'Inception',
  'Christopher Nolan',
  'Leonardo DiCaprio, Joseph Gordon-Levitt',
@@ -157,7 +141,8 @@ INSERT INTO pelicula (
 -- 3. MEDIOS DE PAGO
 -- =========================================================
 
-INSERT INTO medio_pago (nombre) VALUES
+INSERT INTO medio_pago (nombre) 
+VALUES
 ('Efectivo'),
 ('Tarjeta Débito'),
 ('Tarjeta Crédito'),
@@ -169,10 +154,8 @@ INSERT INTO medio_pago (nombre) VALUES
 -- 4. PROMOCIONES
 -- =========================================================
 
-INSERT INTO promocion (
-    nombre,
-    descuento_porcentaje
-) VALUES
+INSERT INTO promocion (nombre, descuento_porcentaje) 
+VALUES
 ('Sin Promoción', 0.00),
 ('Descuento Banco', 50.00),
 ('Miércoles de Cine', 20.00),
@@ -184,14 +167,8 @@ INSERT INTO promocion (
 -- 5. EMPLEADOS
 -- =========================================================
 
-INSERT INTO empleado (
-    legajo,
-    nombre,
-    apellido,
-    cuil,
-    cargo,
-    idcine
-) VALUES
+INSERT INTO empleado (legajo, nombre, apellido, cuil, cargo, idcine) 
+VALUES
 (1001, 'Agustina', 'Sosa',
  '27-40123456-8', 'Cajera Senior', 1),
 
@@ -227,11 +204,8 @@ INSERT INTO empleado (
 -- 6. SALAS
 -- =========================================================
 
-INSERT INTO sala (
-    cod_sala,
-    tamano_pantalla,
-    idcine
-) VALUES
+INSERT INTO sala (cod_sala, tamano_pantalla, idcine) 
+VALUES
 
 -- CinemaX Pergamino
 (1, 120.50, 1),
@@ -386,12 +360,8 @@ CROSS JOIN generate_series(1, 5) AS asiento;
 -- 8. FUNCIONES
 -- =========================================================
 
-INSERT INTO funcion (
-    fecha,
-    horario,
-    idpelicula,
-    idsala
-) VALUES
+INSERT INTO funcion (fecha, horario, idpelicula,idsala) 
+VALUES
 
 -- CINE 1 - SALA 1
 ('2025-06-20', '14:00', 1, 1),

@@ -5,8 +5,6 @@
 
 -- =========================================================
 -- 1. RECAUDACIÓN POR CINE Y MEDIO DE PAGO
--- Concepto: Cruce multi-tabla para analizar los canales
--- de cobro utilizados en cada sucursal.
 -- =========================================================
 
 SELECT c.nombre AS cine, mp.nombre AS medio_pago,
@@ -22,8 +20,6 @@ ORDER BY total_recaudado DESC;
 
 -- =========================================================
 -- 2. OCUPACIÓN Y PORCENTAJE DE CAPACIDAD POR FUNCIÓN
--- Concepto: Cálculo dinámico de la ocupación utilizando
--- la cantidad real de butacas asociadas a cada sala.
 -- =========================================================
 
 SELECT p.titulo AS pelicula, f.fecha, f.horario, s.cod_sala,
@@ -47,9 +43,6 @@ ORDER BY f.fecha, f.horario;
 
 -- =========================================================
 -- 3. DESEMPEÑO DE VENTAS POR EMPLEADO
--- Concepto: Medición de productividad por empleado.
--- COALESCE permite mostrar 0 cuando un empleado no tiene
--- entradas vendidas.
 -- =========================================================
 
 SELECT emp.legajo,  emp.nombre || ' ' || emp.apellido AS empleado,
@@ -64,9 +57,6 @@ ORDER BY total_vendido DESC;
 
 -- =========================================================
 -- 4. PELÍCULAS CON FACTURACIÓN SUPERIOR AL PROMEDIO
--- Concepto: Uso de una subconsulta dentro de HAVING para
--- comparar la recaudación de cada película contra el
--- promedio general de recaudación por película.
 -- =========================================================
 
 SELECT p.titulo, p.genero,
@@ -91,8 +81,6 @@ ORDER BY total_recaudado DESC;
 
 -- =========================================================
 -- 5. RECAUDACIÓN POR GÉNERO
--- Concepto: Análisis de la recaudación y cantidad de
--- entradas vendidas agrupadas por género cinematográfico.
 -- =========================================================
 
 SELECT p.genero,
@@ -107,8 +95,6 @@ ORDER BY total_recaudado DESC;
 
 -- =========================================================
 -- 6. USO DE PROMOCIONES
--- Concepto: Identificación de las promociones utilizadas
--- y cantidad de entradas vendidas con cada beneficio.
 -- =========================================================
 
 SELECT  pr.nombre AS promocion, pr.descuento_porcentaje,
@@ -121,8 +107,6 @@ ORDER BY cantidad_entradas_vendidas DESC;
 
 -- =========================================================
 -- 7. TOP 3 FUNCIONES CON MAYOR RECAUDACIÓN
--- Concepto: Ranking de las 3 funciones con mayor
--- recaudación utilizando ORDER BY y LIMIT.
 -- =========================================================
 
 SELECT c.nombre AS cine, p.titulo AS pelicula, f.fecha, f.horario,
@@ -138,8 +122,6 @@ LIMIT 3;
 
 -- =========================================================
 -- 8. PELÍCULAS SIN FUNCIONES PROGRAMADAS
--- Concepto: Uso de LEFT JOIN para detectar películas que
--- todavía no tienen ninguna función asociada.
 -- =========================================================
 
 SELECT p.idpelicula, p.titulo, p.genero
@@ -151,8 +133,6 @@ ORDER BY p.titulo;
 
 -- =========================================================
 -- 9. RECAUDACIÓN TOTAL POR CINE
--- Concepto: Agrupación de las ventas para conocer cuánto
--- dinero recaudó cada sucursal.
 -- =========================================================
 
 SELECT c.idcine, c.nombre AS cine,
@@ -168,8 +148,6 @@ ORDER BY total_recaudado DESC;
 
 -- =========================================================
 -- 10. RECAUDACIÓN POR FECHA
--- Concepto: Agrupación temporal de las ventas para
--- analizar la recaudación diaria.
 -- =========================================================
 
 SELECT f.fecha, COUNT(e.identrada) AS entradas_vendidas, SUM(e.importe) AS total_recaudado
@@ -181,8 +159,6 @@ ORDER BY f.fecha;
 
 -- =========================================================
 -- 11. CLASIFICACIÓN DE FUNCIONES SEGÚN OCUPACIÓN
--- Concepto: Uso de CASE para clasificar cada función
--- según su porcentaje de ocupación.
 -- =========================================================
 
 SELECT
